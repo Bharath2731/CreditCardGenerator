@@ -89,7 +89,7 @@
       if (formSubmitted && Object.values(data).every(value => value !== '')) {
         setTimeout(() => {
           alert('Successfully Updated'); // Show success alert after a delay
-        }, 0);      }
+        }, 1000);      }
     }, [formSubmitted,data]);
     return (
       <>
