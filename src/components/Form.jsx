@@ -69,6 +69,7 @@
                 cvv:cvv
               }
               setData(dataGoesToCard)
+              alert('Card Details Successfully Updated');
             }
             if(isDataValid===false){
               const dataGoesToCard={
