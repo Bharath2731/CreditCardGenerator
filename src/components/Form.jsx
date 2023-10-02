@@ -1,4 +1,4 @@
-  import React, { useState } from "react";
+  import React, { useState,useEffect } from "react";
   import "./form.css";
   import Card1 from './Card1'
   import Card2 from "./Card2";
@@ -15,6 +15,9 @@
     const [cvvValid, setcvvValid]=useState(false);
 
     const [data,setData]=useState({name:'Bharath sai',number:'00000000000000000',month:'00',year:'0000',cvv:'000'});
+    const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
+
+
     function isAlphabetic(str) {
       const regex = /^[a-zA-Z]+$/;
       return regex.test(str);
@@ -28,60 +31,70 @@
       const regex = /^\d{16}$/;
       return regex.test(str);
     }
+    const handleSubmit=(e) => {
+      setData()
+      let isDataValid=true;
+      e.preventDefault();
+      // validation
+      setNameValid(false)
+      setNumberValid(false)
+      setmonthAndYearValid(false)
+      setcvvValid(false)
+      if(isAlphabetic(name)===false){
+        setNameValid(true)
+        isDataValid=false
+      }
+      if(is16DigitString(cardNumber)==false){
+        setNumberValid(true)
+        isDataValid=false
+      }
+      if(parseInt(month)>12||parseInt(month)<1||month.length===0){
+        setmonthAndYearValid(true)
+        isDataValid=false
+      }
+      if(year.length!=4){
+        setmonthAndYearValid(true)
+        isDataValid=false
+      }
+      if(isThreeDigitNumber(cvv)===false){
+        setcvvValid(true)
+        isDataValid=false
+      }
+      if(isDataValid){
+        const dataGoesToCard={
+          name:name,
+          number:cardNumber,
+          month:month,
+          year:year,
+          cvv:cvv
+        }
+        setData(dataGoesToCard)
+        setFormSubmitted(true); // Set form submission flag to true
+        
+      }
+      if(isDataValid===false){
+        const dataGoesToCard={
+          name:'Bharath sai',
+          number:'00000000000000000',
+          month:'00',
+          year:'0000',
+          cvv:'000'
+        }
+        setData(dataGoesToCard)
+
+      }
+    }
+    useEffect(() => {
+      // Check if the form has been submitted and data is valid
+      if (formSubmitted && Object.values(data).every(value => value !== '')) {
+        setTimeout(() => {
+          alert('Successfully Updated'); // Show success alert after a delay
+        }, 0);      }
+    }, [formSubmitted,data]);
     return (
       <>
         <form
-          onSubmit={(e) => {
-            setData()
-            let isDataValid=true;
-            e.preventDefault();
-            // validation
-            setNameValid(false)
-            setNumberValid(false)
-            setmonthAndYearValid(false)
-            setcvvValid(false)
-            if(isAlphabetic(name)===false){
-              setNameValid(true)
-              isDataValid=false
-            }
-            if(is16DigitString(cardNumber)==false){
-              setNumberValid(true)
-              isDataValid=false
-            }
-            if(parseInt(month)>12||parseInt(month)<1||month.length===0){
-              setmonthAndYearValid(true)
-              isDataValid=false
-            }
-            if(year.length!=4){
-              setmonthAndYearValid(true)
-              isDataValid=false
-            }
-            if(isThreeDigitNumber(cvv)===false){
-              setcvvValid(true)
-              isDataValid=false
-            }
-            if(isDataValid){
-              const dataGoesToCard={
-                name:name,
-                number:cardNumber,
-                month:month,
-                year:year,
-                cvv:cvv
-              }
-              setData(dataGoesToCard)
-              alert('Card Details Successfully Updated');
-            }
-            if(isDataValid===false){
-              const dataGoesToCard={
-                name:'Bharath sai',
-                number:'00000000000000000',
-                month:'00',
-                year:'0000',
-                cvv:'000'
-              }
-              setData(dataGoesToCard)
-            }
-          }}
+          onSubmit={handleSubmit}
         >
           <div className="outer">
             <div className="inner">
