@@ -15,6 +15,10 @@
     const [cvvValid, setcvvValid]=useState(false);
 
     const [data,setData]=useState({name:'Bharath sai',number:'00000000000000000',month:'00',year:'0000',cvv:'000'});
+    function isAlphabetic(str) {
+      const regex = /^[a-zA-Z]+$/;
+      return regex.test(str);
+    }
     function isThreeDigitNumber(str) {
       const regex = /^\d{3}$/; 
       
@@ -36,7 +40,7 @@
             setNumberValid(false)
             setmonthAndYearValid(false)
             setcvvValid(false)
-            if(name.length===0){
+            if(isAlphabetic(name)===false){
               setNameValid(true)
               isDataValid=false
             }
@@ -90,7 +94,7 @@
                     setName(e.target.value);
                   }}
                 />
-                {nameValid?<p className="error">* Name required</p>:''}
+                {nameValid?<p className="error">* Name required and should contain alphabets</p>:''}
               </div>
               <div className="number">
                 <p>CARD NUMBER</p>
@@ -102,7 +106,7 @@
                     setCardNumber(e.target.value);
                   }}
                 />
-                {numberValid?<p className="error">* card number should contain 12 digits</p>:''}
+                {numberValid?<p className="error">* card number should contain 16 digits</p>:''}
               </div>
               <div className="expcvv">
                 <div className="exp">
@@ -123,7 +127,7 @@
                       setYear(e.target.value);
                     }}
                   />
-                  {monthAndYearValid?<p className="error"> * both required</p>:''}
+                  {monthAndYearValid?<p className="error"> *fill,month(1-12),year any</p>:''}
                 </div>
                 <div className="cvv">
                   <p>CVV</p>
