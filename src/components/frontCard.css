@@ -1,0 +1,62 @@
+
+.cardOuter {
+  height: 30vh;
+  width: 27vw;
+  border-radius: 10px;
+  z-index: 100;
+  position: fixed;
+  top: 16vh;
+  left: 13vw;
+  background-image: url(".././cardBg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.cardInner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cardTop{
+  display: flex;
+  align-items: center;
+  margin-top: 3vh;
+  margin-left: 3vw;
+}
+.circle1{
+  height: 7vh;
+  width:  7vh;
+  background-color: white;
+  border-radius: 50%;
+}
+.circle2{
+  margin-left: 1vw;
+  height: 2.5vh;
+  width:  2.5vh;
+  border: solid white 1px;
+  border-radius: 50%;
+}
+.cardBottom{
+  display: flex;
+  flex-direction: column;
+}
+.fourSpans{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 8vh 2vw 0vh 2vw;
+}
+.span1,.span2,.span3,.span4{
+  color: white;
+  font-size: xx-large;
+  letter-spacing:5px;
+}
+.nameAndExp{
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 4px;
+  font-size: medium;
+  font-weight: 300;
+  margin: 2vh 2.8vw;
+}

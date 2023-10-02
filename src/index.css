@@ -1,1 +1,22 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
+.colored{
+    position: fixed;
+    left: 0;
+    width: 35vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: radial-gradient(ellipse at 100% 0%, black, transparent),
+    radial-gradient(circle at 20% 30%, purple, transparent),
+    radial-gradient(circle at 60% 50%, tomato, transparent),
+    radial-gradient(circle at 70% 60%, purple, transparent),
+    radial-gradient(circle at 40% 50%, rgb(102, 48, 48), transparent),
+    radial-gradient(ellipse at 30% 100%, black, transparent);
+}
+.form{
+    position: fixed;
+    top: 0;
+    left: 35vw;
+}
