@@ -75,7 +75,7 @@
       if(isDataValid===false){
         const dataGoesToCard={
           name:'Bharath sai',
-          number:'00000000000000000',
+          number:'0000000000000000',
           month:'00',
           year:'0000',
           cvv:'000'
