@@ -14,7 +14,7 @@
     const [monthAndYearValid, setmonthAndYearValid]=useState(false);
     const [cvvValid, setcvvValid]=useState(false);
 
-    const [data,setData]=useState({name:'Bharath sai',number:'00000000000000000',month:'00',year:'0000',cvv:'000'});
+    const [data,setData]=useState({name:'Bharath sai',number:'0000000000000000',month:'00',year:'0000',cvv:'000'});
     const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
 
 
