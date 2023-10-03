@@ -137,7 +137,7 @@ function Form() {
             </div>
             <div className="expcvv">
               <div className="exp">
-                <p>EXP.DATE(MM/YY)</p>
+                <p>EXP.DATE(MM/YYYY)</p>
                 <input
                   type="text"
                   placeholder="MM"
@@ -148,7 +148,7 @@ function Form() {
                 />
                 <input
                   type="text"
-                  placeholder="YY"
+                  placeholder="YYYY"
                   value={year}
                   onChange={(e) => {
                     setYear(e.target.value);
