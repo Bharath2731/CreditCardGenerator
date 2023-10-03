@@ -85,6 +85,7 @@ function Form() {
         cvv: "000",
       };
       setData(dataGoesToCard);
+      setFormSubmitted(false); 
     }
   };
   useEffect(() => {
